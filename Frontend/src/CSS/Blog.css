@@ -1,0 +1,125 @@
+.blog-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .blog-title {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 30px;
+    color: #333;
+  }
+  
+  .blog-main-content {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .blog-list {
+    flex: 3;
+  }
+  
+  .blog-card {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 30px;
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .blog-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+  }
+  
+  .blog-details {
+    padding: 15px;
+  }
+  
+  .blog-date,
+  .blog-category {
+    font-size: 0.9rem;
+    color: #555;
+    margin-right: 10px;
+  }
+  
+  .blog-heading {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 10px 0;
+    color: #333;
+  }
+  
+  .blog-description {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 15px;
+  }
+  
+  .blog-read-more {
+    font-size: 1rem;
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .blog-read-more:hover {
+    text-decoration: underline;
+  }
+  
+  .blog-sidebar {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .sidebar-blog-link {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .sidebar-blog-card {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+  }
+  
+  .sidebar-blog-image {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  
+  .sidebar-blog-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .sidebar-blog-date,
+  .sidebar-blog-category {
+    font-size: 0.8rem;
+    color: #555;
+  }
+  
+  .sidebar-blog-title {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333;
+    line-height: 1.4;
+  }
+  

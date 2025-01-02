@@ -1,0 +1,16 @@
+/* Map.css */
+.map-container {
+    height: 100vh; /* Full height */
+    width: 100%;   /* Full width */
+  }
+  
+  .map {
+    height: 100%;
+    width: 100%;
+  }
+
+  h1 {
+    text-align: center; /* Center-aligns the text */
+    margin: 20px 0;     /* Adds some margin above and below the heading */
+  }
+  

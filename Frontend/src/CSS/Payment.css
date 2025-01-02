@@ -1,0 +1,59 @@
+.payment-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    margin: 50px auto;
+    padding: 20px;
+    max-width: 400px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .payment-container h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .payment-container p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+  }
+  
+  .payment-methods {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+  }
+  
+  .payment-btn {
+    padding: 15px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .esewa-btn {
+    background-color: #4caf50;
+    color: white;
+  }
+  
+  .esewa-btn:hover {
+    background-color: #45a049;
+  }
+  
+  .khalti-btn {
+    background-color: #563d7c;
+    color: white;
+  }
+  
+  .khalti-btn:hover {
+    background-color: #482a67;
+  }
+  

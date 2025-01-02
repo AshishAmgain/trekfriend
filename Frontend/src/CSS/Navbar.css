@@ -1,0 +1,164 @@
+/* Navbar styles */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 30px;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  font-family: Arial, sans-serif;
+}
+
+/* Logo styles */
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.nav-logo img {
+  width: 100px;
+  height: auto;
+}
+
+/* Menu styles */
+.nav-menu {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+  justify-content: center; /* Centers the menu items */
+  flex: 1; /* Allows the menu to occupy available space */
+}
+
+.nav-menu li {
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.nav-menu li a {
+  text-decoration: none;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+.nav-menu li:hover a,
+.nav-menu .active a {
+  color: #007bff;
+}
+
+/* Cart and Auth Container */
+.nav-auth {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Cart icon styles */
+.nav-cart {
+  position: relative;
+  margin-right: 20px;
+}
+
+.nav-cart img {
+  width: 20px;
+  height: auto;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+.nav-cart img:hover {
+  transform: scale(1.1);
+}
+
+/* Cart count badge */
+.cart-count {
+  position: absolute;
+  top: -5px; /* Adjusts the vertical placement */
+  right: -10px; /* Adjusts the horizontal placement */
+  background-color: red;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 50%;
+  padding: 2px 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Login and Register buttons */
+.login-btn,
+.register-btn {
+  padding: 6px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  background-color: black;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+.login-btn:hover,
+.register-btn:hover {
+  background-color: #333;
+}
+
+/* Logout and Welcome */
+.nav-welcome {
+  font-size: 14px;
+  font-weight: bold;
+  color: #555;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logout-btn {
+  background: transparent;
+  border: 2px solid black;
+  color: black;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.logout-btn:hover {
+  background-color: black;
+  color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .navbar {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 16px;
+  }
+
+  .nav-menu {
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+  }
+
+  .nav-auth {
+      margin-top: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+  }
+
+  .nav-cart img {
+      width: 25px;
+  }
+}
