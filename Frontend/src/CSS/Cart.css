@@ -1,3 +1,4 @@
+/* General Cart Container */
 .cart-container {
   padding: 20px;
   max-width: 800px;
@@ -7,6 +8,7 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* Header Styles */
 .cart-header {
   display: flex;
   justify-content: space-between;
@@ -16,10 +18,11 @@
 
 .cart-header h1 {
   font-size: 1.8rem;
+  font-weight: bold;
 }
 
 .clear-cart-btn {
-  background-color: #ff4d4d;
+  background-color: #000000;
   color: white;
   padding: 10px 15px;
   border: none;
@@ -33,6 +36,7 @@
   background-color: #e60000;
 }
 
+/* Table Styles */
 .cart-table {
   width: 100%;
   border-collapse: collapse;
@@ -47,16 +51,19 @@
 }
 
 .cart-table th {
-  background-color: #007bff;
+  background-color: #000000;
   color: white;
+  font-weight: bold;
 }
 
 .cart-item-image {
   width: 50px;
   height: 50px;
   border-radius: 5px;
+  object-fit: cover;
 }
 
+/* Quantity Controls */
 .quantity-control {
   display: flex;
   align-items: center;
@@ -66,38 +73,84 @@
 
 .decrease-btn,
 .increase-btn {
-  background-color: #007bff;
+  background-color: #000000;
   color: white;
   border: none;
   padding: 5px 10px;
   border-radius: 5px;
   cursor: pointer;
   font-size: 1rem;
+  font-weight: bold;
 }
 
 .decrease-btn:hover,
 .increase-btn:hover {
-  background-color: #0056b3;
+  background-color: #333333;
 }
 
+/* Total Amount */
 .total-amount {
   font-size: 1.5rem;
+  font-weight: bold;
   text-align: center;
   margin-bottom: 20px;
+  color: #333;
 }
 
+/* Proceed Button */
 .proceed-btn {
   display: block;
   margin: 0 auto;
-  background-color: #007bff;
+  background-color: #000000;
   color: white;
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
   font-size: 1rem;
   cursor: pointer;
+  font-weight: bold;
 }
 
 .proceed-btn:hover {
-  background-color: #0056b3;
+  background-color: #333333;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .cart-container {
+    padding: 15px;
+  }
+
+  .cart-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .clear-cart-btn {
+    padding: 8px 12px;
+    font-size: 0.8rem;
+  }
+
+  .cart-table th,
+  .cart-table td {
+    font-size: 0.9rem;
+  }
+
+  .quantity-control {
+    gap: 5px;
+  }
+
+  .decrease-btn,
+  .increase-btn {
+    font-size: 0.9rem;
+    padding: 4px 8px;
+  }
+
+  .total-amount {
+    font-size: 1.2rem;
+  }
+
+  .proceed-btn {
+    font-size: 0.9rem;
+    padding: 8px 16px;
+  }
 }

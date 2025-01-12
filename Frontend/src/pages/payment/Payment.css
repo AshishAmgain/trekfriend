@@ -1,0 +1,118 @@
+.payment-wrapper {
+  min-height: 100vh;
+  background-color: #f5f5f5;
+  padding: 2rem;
+}
+
+.payment-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.payment-card {
+  max-width: 500px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.payment-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.payment-header h2 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #000;
+}
+
+.order-summary {
+  margin: 2rem 0;
+}
+
+.price-details {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 8px;
+}
+
+.price-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.75rem 0;
+  color: #666;
+  font-size: 1rem;
+}
+
+.price-row.items {
+  color: #333;
+  font-weight: 500;
+}
+
+.price-row.discount {
+  color: #16a34a;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 1rem;
+}
+
+.price-row.total {
+  margin-top: 0.5rem;
+  padding-top: 1rem;
+  font-weight: 600;
+  color: #000;
+  font-size: 1.2rem;
+}
+
+.payment-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.payment-actions button {
+  width: 100%;
+  padding: 0.875rem;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.btn-esewa {
+  background-color: #000;
+  color: white;
+  border: none;
+}
+
+.btn-esewa:hover {
+  background-color: #333;
+}
+
+.btn-cancel {
+  background-color: #fff;
+  color: #000;
+  border: 1px solid #ddd !important;
+}
+
+.btn-cancel:hover {
+  background-color: #f5f5f5;
+}
+
+@media (max-width: 768px) {
+  .payment-wrapper {
+    padding: 1rem;
+  }
+
+  .payment-card {
+    padding: 1.5rem;
+  }
+
+  .price-details {
+    padding: 1rem;
+  }
+} 

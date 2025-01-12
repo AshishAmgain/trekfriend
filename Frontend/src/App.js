@@ -8,6 +8,7 @@ import RentProductDescription from "./pages/rent/RentProductDescription"; // Imp
 import About from "./pages/navbar/About";
 import Payment from "./pages/payment/Payment";
 
+
 // Toast Config
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -25,11 +26,11 @@ import Contact from "./pages/navbar/Contact";
 import Checkout from "./pages/navbar/Checkout";
 import Cart from "./pages/Cart/Cart";
 import Complete from "./pages/Cart/Complete";
-
 import Settings from "./pages/setting/Settings";
 import Blog from "./pages/navbar/Blog";
 import Trails from "./pages/navbar/Trails";
 import RouteDetail from "./pages/navbar/RouteDetail";
+import EsewaPayment from "./pages/payment/Esewa";
 
 function App() {
   return (
@@ -45,6 +46,7 @@ function App() {
         <Route path="/settings" element={<Settings />} />
         <Route path="/destination" element={<Destination />} />
         <Route path="/route/:routeName" element={<RouteDetail />} />
+        <Route path="/esewa" element={<EsewaPayment />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/trails" element={<Trails />} />

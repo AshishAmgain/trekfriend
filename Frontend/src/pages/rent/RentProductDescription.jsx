@@ -16,7 +16,7 @@ const RentProductDescription = () => {
 
   const handleProceedToPayment = () => {
     const totalPrice = rentPricePerDay * days; // Calculate total price
-    navigate("/payment", { state: { product, action: "rent", totalPrice, days } });
+    navigate("/payment", { state: { product, action: "rent", totalPrice, cartItems: [{ product, days }], total: totalPrice } });
   };
 
   return (

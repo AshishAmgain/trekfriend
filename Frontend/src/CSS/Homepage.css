@@ -1,12 +1,14 @@
 /* General container */
 .container {
     margin-top: 20px;
+    margin-bottom: 20px; /* Add space at the bottom of the homepage content */
+    
 }
 
 /* Hero Section */
 .hero {
     height: 40vh;
-    background: url("../Assets/waterfall.jpg") center center / cover no-repeat;
+    background: url("../Assets/Swayambhunath.jpg") center center / cover no-repeat;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -22,7 +24,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.7); /* Dark overlay for black theme */
+    background: rgba(50, 50, 50, 0.7); /* Dark overlay for black theme */
     border-radius: 8px;
 }
 
@@ -30,7 +32,7 @@
     position: relative;
     z-index: 1;
     text-align: center;
-    color: white;
+    color: rgb(16, 16, 16);
     padding: 0 20px;
     text-shadow: 0 2px 6px rgba(0, 0, 0, 0.8);
 }
@@ -48,7 +50,7 @@
 
 /* Flash Sales Section */
 .flash-title {
-    color: white;
+    color: rgb(18, 17, 17);
     font-size: 2.5rem;
     font-weight: bold;
     text-align: center;
@@ -63,7 +65,7 @@
     grid-template-columns: repeat(3, 1fr); /* 3 items per row */
     gap: 20px;
     padding: 20px;
-    background-color: #222; /* Dark background */
+    background-color: #060606; /* Dark background */
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
@@ -75,10 +77,10 @@
     align-items: center;
     justify-content: center;
     padding: 15px;
-    background: #333; /* Darker background for cards */
-    border: 1px solid #444;
+    background: #fafafa; /* Darker background for cards */
+    border: 2px solid #070707;
     border-radius: 8px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 6px 12px rgba(133, 132, 132, 0.3);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     position: relative;
     overflow: hidden;
@@ -86,7 +88,7 @@
 
 .product-card:hover {
     transform: scale(1.03);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 12px 24px rgba(245, 245, 245, 0.5);
 }
 
 .product-image {
@@ -104,7 +106,7 @@
 .product-card h3 {
     font-size: 1.2rem;
     font-weight: bold;
-    color: white; /* White text for black theme */
+    color: rgb(8, 8, 8); /* White text for black theme */
     text-align: center;
     margin-bottom: 8px;
 }
@@ -117,7 +119,7 @@
 }
 
 .product-card .price {
-    color: #27ae60;
+    color: #000000;
     font-size: 1.1rem;
     font-weight: bold;
     margin: 10px 0;
@@ -141,17 +143,17 @@
 }
 
 .buy-btn {
-    background-color: #3498db;
-    color: white;
+    background-color: #000000; /* Black background */
+    color: white; /* White text for contrast */
 }
 
 .buy-btn:hover {
-    background-color: #2980b9;
-    transform: translateY(-2px);
+    background-color: #333333; /* Slightly lighter black on hover */
+    transform: translateY(-2px); /* Keep the hover effect */
 }
 
 .rent-btn {
-    background-color: #e67e22;
+    background-color: #000000;
     color: white;
 }
 
@@ -161,7 +163,7 @@
 }
 
 .add-to-cart-btn {
-    background-color: #2ecc71;
+    background-color: #060606;
     color: white;
 }
 
