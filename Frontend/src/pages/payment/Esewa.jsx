@@ -10,8 +10,9 @@ const Esewa = ({ amount }) => {
       return;
     }
 
-    var path = "https://uat.esewa.com.np/epay/main";
-    var params = {
+    // Construct the eSewa payment URL with query parameters
+    const path = "https://rc-epay.esewa.com.np/epay/main";
+    const params = new URLSearchParams({
       amt: totalAmount,
       psc: 0,
       pdc: 0,
@@ -21,22 +22,10 @@ const Esewa = ({ amount }) => {
       scd: "EPAYTEST",
       su: "http://localhost:3000/payment/success",
       fu: "http://localhost:3000/payment/failure"
-    };
+    }).toString();
 
-    var form = document.createElement("form");
-    form.setAttribute("method", "POST");
-    form.setAttribute("action", path);
-
-    for (var key in params) {
-      var hiddenField = document.createElement("input");
-      hiddenField.setAttribute("type", "hidden");
-      hiddenField.setAttribute("name", key);
-      hiddenField.setAttribute("value", params[key]);
-      form.appendChild(hiddenField);
-    }
-
-    document.body.appendChild(form);
-    form.submit();
+    // Redirect to eSewa payment page
+    window.location.href = `${path}?${params}`;
   };
 
   return (

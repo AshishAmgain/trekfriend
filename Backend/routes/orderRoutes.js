@@ -1,13 +1,17 @@
 const express = require("express");
-const { createOrder, getUserOrders } = require("../controllers/orderController");
-const { authGuard } = require("../middleware/authGuard");
-
 const router = express.Router();
+const { verifyToken } = require("../middleware/auth");
+const { createOrder, getUserOrders } = require("../controllers/orderController");
 
-// Route to Create an Order
-router.post("/create", authGuard, createOrder);
+// Debug route
+router.get('/test', (req, res) => {
+  res.json({ message: 'Order routes are working' });
+});
 
-// Route to Get Orders for a Specific User
-router.get("/user-orders/:userId", authGuard, getUserOrders);
+// Create order
+router.post('/', verifyToken, createOrder);
+
+// Get user orders
+router.get('/user/:userId', verifyToken, getUserOrders);
 
 module.exports = router;

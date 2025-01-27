@@ -3,31 +3,52 @@ const mongoose = require("mongoose");
 const orderSchema = new mongoose.Schema({
   user: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "users", // Reference the user model
+    ref: "User",
     required: true,
   },
-  product: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "products", // Reference the product model
-    required: true,
+  products: [{
+    product: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Product"
+    },
+    quantity: Number
+  }],
+  amount: {
+    type: Number,
+    required: true
   },
-  action: {
+  fullName: {
     type: String,
-    enum: ["buy", "rent"], // Specify valid actions
-    required: true,
+    required: true
   },
-  rentDuration: {
-    type: Number,
-    default: null, // Only applicable for rent
+  email: {
+    type: String,
+    required: true
   },
-  totalPrice: {
-    type: Number,
-    required: true,
+  phone: {
+    type: String,
+    required: true
+  },
+  address: {
+    type: String,
+    required: true
+  },
+  city: {
+    type: String,
+    required: true
+  },
+  paymentMethod: {
+    type: String,
+    default: 'Cash on Delivery'
+  },
+  status: {
+    type: String,
+    default: 'Pending'
   },
   createdAt: {
     type: Date,
-    default: Date.now,
-  },
+    default: Date.now
+  }
 });
 
-module.exports = mongoose.model("orders", orderSchema);
+module.exports = mongoose.model("Order", orderSchema);

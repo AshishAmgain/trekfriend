@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import cart_icon from "../Assets/cart_icon.png"; // Replace with your cart icon
+import cart_icon from "../Assets/cart_icon.png";
 import logo from "../Assets/logo.png";
 import "../CSS/Navbar.css";
 
@@ -55,8 +55,13 @@ const Navbar = () => {
         </li>
       </ul>
 
-      <div className="nav-cart">
-        <Link to="/cart">
+      <div className="nav-icons">
+        {user && (
+          <Link to="/profile" className="nav-profile">
+            <i className="fas fa-user"></i>
+          </Link>
+        )}
+        <Link to="/cart" className="nav-cart">
           <img src={cart_icon} alt="Cart Icon" />
           {cartCount > 0 && <span className="cart-count">{cartCount}</span>}
         </Link>

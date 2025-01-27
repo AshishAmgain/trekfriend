@@ -3,9 +3,12 @@ const dotenv = require("dotenv");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const fileUpload = require("express-fileupload");
-const axios = require("axios");
 const connectDB = require("./database/database"); // Database connection file
 const newsletterRoutes = require("./routes/newsletterRoutes");
+const orderRoutes = require('./routes/orderRoutes');
+const userRoutes = require('./routes/userRoutes');
+const productRoutes = require('./routes/productRoutes');
+const cartRoutes = require('./routes/cartRoutes');
 
 // Load environment variables
 dotenv.config();
@@ -19,6 +22,7 @@ const app = express();
 // Middleware
 app.use(express.json()); // Parse incoming JSON requests
 app.use(fileUpload()); // Enable file uploads
+app.use(express.urlencoded({ extended: true }));
 
 // Define allowed origins for CORS
 const allowedOrigins = ["http://localhost:3000"]; // Replace with your frontend URL
@@ -48,8 +52,6 @@ app.get("/test", (req, res) => {
 });
 
 // Import routes
-const userRoutes = require("./routes/userRoutes");
-const productRoutes = require("./routes/productRoutes");
 const contactRoutes = require("./routes/contactRoutes"); // Contact routes for the contact form
 const reviewRoutes = require("./routes/reviewRoutes");
 
@@ -59,52 +61,15 @@ app.use("/api/product", productRoutes);
 app.use("/api/contact", contactRoutes); // Contact routes
 app.use("/api/newsletter", newsletterRoutes);
 app.use("/api/reviews", reviewRoutes);
-
-// Khalti Payment Verification Route
-app.post("/api/payment/khalti/verify", async (req, res) => {
-  const { token, amount } = req.body;
-
-  if (!token || !amount) {
-    return res.status(400).json({ message: "Token and Amount are required" });
-  }
-
-  try {
-    // Call Khalti's payment verification API
-    const response = await axios.post(
-      "https://khalti.com/api/v2/payment/verify/",
-      { token, amount },
-      {
-        headers: {
-          Authorization: `Key ${process.env.KHALTI_SECRET_KEY}`, // Use your Khalti Secret Key
-        },
-      }
-    );
-
-    // If the response is successful
-    if (response.status === 200) {
-      return res.status(200).json({
-        message: "Payment Verified Successfully",
-        data: response.data,
-      });
-    } else {
-      // Handle verification failure
-      return res.status(400).json({
-        message: "Payment Verification Failed",
-        error: response.data,
-      });
-    }
-  } catch (error) {
-    console.error("Error verifying Khalti payment:", error);
-    return res.status(500).json({ message: "Server Error during Khalti verification" });
-  }
-});
+app.use('/api/orders', orderRoutes);
+app.use('/api/cart', cartRoutes);
 
 // Global error handling middleware
 app.use((err, req, res, next) => {
-  console.error(err.stack);
+  console.error(err);
   res.status(500).json({
     success: false,
-    message: "Internal Server Error",
+    message: err.message || 'Internal Server Error'
   });
 });
 
@@ -117,8 +82,15 @@ app.use((req, res) => {
 });
 
 // Start the server
-app.listen(PORT, "0.0.0.0", () => {
-  console.log(`Server-app is running on port ${PORT}`);
-});
+mongoose.connect(process.env.MONGODB_URL)
+  .then(() => {
+    app.listen(PORT, () => {
+      console.log('Server-app is running on port', PORT);
+      console.log('Connected to local MongoDB');
+    });
+  })
+  .catch((err) => {
+    console.error('MongoDB connection error:', err);
+  });
 
 module.exports = app;

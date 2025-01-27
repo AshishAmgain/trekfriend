@@ -3,75 +3,79 @@ const Product = require("../models/productModel");
 
 // Create Order Controller
 const createOrder = async (req, res) => {
-  const { userId, productId, action, rentDuration } = req.body;
-
-  // Validation for required fields
-  if (!userId || !productId || !action) {
-    return res.status(400).json({
-      success: false,
-      message: "Missing required fields",
-    });
-  }
-
   try {
-    // Fetch product details
-    const product = await Product.findById(productId);
-    if (!product) {
-      return res.status(404).json({
+    console.log('Creating order with data:', req.body);
+    console.log('User from token:', req.user); // Debug log
+
+    const {
+      amount,
+      products,
+      fullName,
+      email,
+      phone,
+      address,
+      city
+    } = req.body;
+
+    // Validate required fields
+    if (!amount || !products || !fullName || !email || !phone || !address || !city) {
+      return res.status(400).json({
         success: false,
-        message: "Product not found",
+        message: 'All fields are required'
       });
     }
 
-    // Calculate total price
-    const totalPrice =
-      action === "buy"
-        ? product.productPrice
-        : (product.productPrice / 10) * rentDuration;
-
-    // Create new order object
-    const newOrder = new Order({
-      user: userId,
-      product: productId,
-      action: action,
-      rentDuration: action === "rent" ? rentDuration : null,
-      totalPrice: totalPrice,
+    // Create new order
+    const order = new Order({
+      user: req.user._id, // Changed from req.user.id to req.user._id
+      products: products.map(item => ({
+        product: item.product,
+        quantity: item.quantity
+      })),
+      amount,
+      fullName,
+      email,
+      phone,
+      address,
+      city,
+      paymentMethod: 'Cash on Delivery',
+      status: 'Pending'
     });
 
-    // Save the order
-    await newOrder.save();
+    const savedOrder = await order.save();
+    console.log('Order saved:', savedOrder);
 
     res.status(201).json({
       success: true,
-      message: "Order created successfully",
-      order: newOrder,
+      message: 'Order created successfully',
+      order: savedOrder
     });
   } catch (error) {
-    console.error("Error creating order:", error);
+    console.error('Order creation error:', error);
     res.status(500).json({
       success: false,
-      message: "Internal Server Error",
+      message: 'Error creating order',
+      error: error.message
     });
   }
 };
 
 // Get Orders for a User
 const getUserOrders = async (req, res) => {
-  const userId = req.params.userId;
-
   try {
-    // Fetch user orders with product details populated
-    const orders = await Order.find({ user: userId }).populate("product");
+    const orders = await Order.find({ user: req.user.id })
+      .populate('products.product')
+      .sort('-createdAt');
 
     res.status(200).json({
       success: true,
-      orders: orders,
+      orders
     });
   } catch (error) {
-    console.error("Error fetching user orders:", error);
     res.status(500).json({
       success: false,
-      message: "Internal Server Error",
+      message: 'Error fetching orders',
+      error: error.message
     });
   }
 };
